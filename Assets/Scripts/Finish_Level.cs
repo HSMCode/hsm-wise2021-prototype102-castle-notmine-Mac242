@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
 public class Finish_Level : MonoBehaviour
 {
     public GameObject player;
     public GameObject winPanel;
+
+  
+
 
     // Start is called before the first frame update
     void Start()
