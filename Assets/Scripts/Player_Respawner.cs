@@ -15,6 +15,7 @@ public class Player_Respawner : MonoBehaviour
         {
             //Debug.Log("Collision");
             player.transform.position = spawnPoint.transform.position; // Reset Player Position
+            player.transform.rotation = Quaternion.identity;
         }
         
     }
