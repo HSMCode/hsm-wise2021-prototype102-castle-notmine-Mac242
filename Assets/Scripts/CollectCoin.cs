@@ -19,6 +19,10 @@ public class CollectCoin : MonoBehaviour
             // add collected coins to UI
             textCoins.text = collectedCoins.ToString() + " chink(s),";
 
+            // add  bonus seconds to timer to get out of nook
+            gameObject.GetComponent<Time_Limit>().timeLimit += 3;
+            gameObject.GetComponent<Time_Limit>().currentTime += 3;
+
             // set collected coin inactive and destroy after short delay
             col.gameObject.SetActive(false);
             Destroy(col.gameObject, 0.5f);

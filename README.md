@@ -3,6 +3,7 @@
 This project was imported using the **Unity 2020.3.18** empty base project.
 
 _Once upon a timeth, th're wast a frightened knight yond didst ev'rything to avoideth fights._
+
 While his fellow knights are occupying the castle, one panicked knight tries to sneak through, avoiding enemies and obstacles as well as
 collecting riches for his personal collection before the castle guard catches up with him.
 
@@ -43,8 +44,7 @@ Music promoted on https://www.chosic.com/free-music/all/
 Creative Commons Attribution 3.0 Unported (CC BY 3.0)
 https://creativecommons.org/licenses/by/3.0/
   - **Billie Thompson** - *Provided README Template* -
-    [PurpleBooth](https://github.com/PurpleBooth)
-
+    [PurpleBooth](https://github.com/PurpleBooth) 
 See also the list of
 [contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
 who participated in this project.
