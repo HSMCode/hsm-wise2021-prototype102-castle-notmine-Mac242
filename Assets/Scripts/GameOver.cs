@@ -47,8 +47,8 @@ public class GameOver : MonoBehaviour
             gameOverTitle.text = "Thee wonneth!";
             restartButtonText.text = "Hie up and keepeth walking!";
             gameOverText.text = "I congratulate thee, brave knight.  Thee hath reached the next chamb'r with <b><color=#2e7aec>" + timeLeft + 
-            "</color></b> left and <b><color=#ffc107>" + collectedCoins + "</color></b> golden chink(s) in thy pocket. \n" + 
-            "But wherefore didst thee runneth backeth to the entrance <b><color=#f35218>" + respawnCounter + "</color></b> time(s)? Nev'rmind ...";
+            "</color></b> and <b><color=#ffc107>" + collectedCoins + " golden chink(s)</color></b> in thy pocket. \n" + 
+            "But wherefore didst thee runneth backeth to the entrance <b><color=#f35218>" + respawnCounter + " time(s)</color></b>? Nev'rmind ...";
         } 
         else 
         {
@@ -57,7 +57,7 @@ public class GameOver : MonoBehaviour
             gameOverTitle.text = "Game Ov'r";
             restartButtonText.text = "Anoth'r adventure awaits ...";
             gameOverText.text = "Oh nay, thee hath tried but thy feareth ov'rcame thee once again and the castle guardeth hath caught up with thee. \n" + 
-            "Thankfully, nay one did notice thee running backeth to the entrance <b><color=#f35218>" + respawnCounter + "</color></b> time(s)!";
+            "Thankfully, nay one did notice thee running backeth to the entrance <b><color=#f35218>" + respawnCounter + " time(s)</color></b>!";
         }
 
         // activate UI elements
