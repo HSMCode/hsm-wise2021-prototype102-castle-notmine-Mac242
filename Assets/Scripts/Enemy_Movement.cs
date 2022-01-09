@@ -5,17 +5,36 @@ using UnityEngine;
 public class Enemy_Movement : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
-    private float walkingDistance = 2f;
-    private float speed = 60f;
+    private float walkingDistance = 1.9f;
+    private float speed = 50f;
+    // variables to check for moving direction
+    private bool moveForward = true;
+    private float positionChange = 0;
 
     // Update is called once per frame
     void Update()
     {
+        // update variable to check if enemy has hit walking distance and shound change directions
+        if (positionChange > walkingDistance) {
+            moveForward = false;
+        } else if (positionChange < -1 * walkingDistance) {
+            moveForward = true;
+        }
+
+
         // every enemy moves forwards and backwards along the local x-axis
         for (int i = 0; i < enemies.Length; i++)
         {
-            //enemies[i].transform.Translate(new Vector3(0,0.3f,-0.3f) * Mathf.Sin(Time.deltaTime + (float)i / enemies.Length));
-            enemies[i].transform.Translate(Vector3.forward * Mathf.Sin(Time.time * walkingDistance) * Time.deltaTime * speed);
+
+            // check for direction
+            if (moveForward) {
+                positionChange += Time.deltaTime;
+                enemies[i].transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            }
+            else {
+                positionChange -= Time.deltaTime;
+                enemies[i].transform.Translate(Vector3.back * Time.deltaTime * speed);
+            }
         }
     }
 }

@@ -6,21 +6,14 @@ using TMPro;
 public class Player_Controller : MonoBehaviour
 {
     // set variables for rotation speed and movement speed
-    public float rotationSpeed = 240f;
-    public float speed = 45f;
+    public float rotationSpeed = 330f;
+    public float speed = 60f;
     private float resetRotSpeed;
     private float resetSpeed;
 
     // position where the player should respawn and respawn counter
     public Transform spawnPoint; 
     public int respawnCounter = 0;
-
-    // variable to check if player currently is sped up 
-    private bool boosting = false;
-
-    // save collected coins to bag and assign UI variable
-    public int collectedCoins = 0;
-    public TMP_Text textCoins;
     
 
     // Start is called before the first frame update
@@ -41,19 +34,6 @@ public class Player_Controller : MonoBehaviour
             // constant player rotation around X angle
             gameObject.transform.Rotate(rotationSpeed * Time.deltaTime, 0, 0, Space.Self);
         }
-
-
-    }
-
-    // speed-up when player collides with yellow Obstacles (tagged with SpeedUp) and not already boosted
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "SpeedUp" && !boosting)
-        {
-            boosting = true;
-            rotationSpeed *= 2f;
-            speed *= 2f;
-        }
     }
     
     // check for collisions of player
@@ -65,7 +45,8 @@ public class Player_Controller : MonoBehaviour
             // reset player values to default
             rotationSpeed = resetRotSpeed;
             speed = resetSpeed;
-            boosting = false;
+            gameObject.GetComponent<GetSpeedUp>().boosting = false;
+            gameObject.GetComponent<GetSpeedUp>().wetTrail.SetActive(false);
 
             // Reset Player Position
             transform.position = spawnPoint.transform.position;
@@ -74,17 +55,6 @@ public class Player_Controller : MonoBehaviour
             // add to respawnCounter
             respawnCounter++;
         } 
-        // check if player collected a coin along the way
-        else if (col.gameObject.CompareTag("Coin")) {
-            collectedCoins++;
-
-            // add collected coins to UI
-            textCoins.text = "Coins:" + collectedCoins.ToString();
-
-            // set collected coin inactive and destroy after short delay
-            col.gameObject.SetActive(false);
-            Destroy(col.gameObject, 0.5f);
-        }
         // check if player made it to the end
         else if (col.gameObject.CompareTag("Finish")) {
             // call winning function

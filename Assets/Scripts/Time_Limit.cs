@@ -39,6 +39,6 @@ public class Time_Limit : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % timeLimit);
 
         // overwrite timer UI element
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds) + " left";
     }
 }

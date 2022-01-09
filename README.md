@@ -38,6 +38,10 @@ Either download the Executable or the Unity Project to play the game (or to look
   - **Game Concept:** Carola
   - **Code:** Anna, Svenja, Alen, Carola
 
+  - **Music:** Ale and Anecdotes by Darren Curtis | https://www.darrencurtismusic.com/
+Music promoted on https://www.chosic.com/free-music/all/
+Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+https://creativecommons.org/licenses/by/3.0/
   - **Billie Thompson** - *Provided README Template* -
     [PurpleBooth](https://github.com/PurpleBooth)
 

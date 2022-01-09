@@ -35,7 +35,7 @@ public class GameOver : MonoBehaviour
         */
         Time.timeScale = 0;
         int respawnCounter = gameObject.GetComponent<Player_Controller>().respawnCounter;
-        int collectedCoins = gameObject.GetComponent<Player_Controller>().collectedCoins;
+        int collectedCoins = gameObject.GetComponent<CollectCoin>().collectedCoins;
 
         if (win) 
         {
@@ -56,7 +56,7 @@ public class GameOver : MonoBehaviour
             // change information text to display tries and encouraging start-again message
             gameOverTitle.text = "Game Ov'r";
             restartButtonText.text = "Anoth'r adventure awaits ...";
-            gameOverText.text = "Oh nay, thee hath tried but thy feareth ov'rcame thee once again. \n" + 
+            gameOverText.text = "Oh nay, thee hath tried but thy feareth ov'rcame thee once again and the castle guardeth hath caught up with thee. \n" + 
             "Thankfully, nay one did notice thee running backeth to the entrance <b><color=#f35218>" + respawnCounter + "</color></b> time(s)!";
         }
 
