@@ -1,88 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UIElements;
+using TMPro;
 
 public class Player_Controller : MonoBehaviour
 {
-    public GameObject player;
-    public float xAngle;
-    public float yAngle;
-    public float zAngle;
-    public float speed;
-    public float rotationSpeed;
-    public float stopRotation;
-    public Transform spawnPoint; // Position where the player should respawn
+    // set variables for rotation speed and movement speed
+    public float rotationSpeed = 330f;
+    public float speed = 60f;
+    private float resetRotSpeed;
+    private float resetSpeed;
 
-    //Speed Up 
-    private bool boosting;
+    // position where the player should respawn and respawn counter
+    public Transform spawnPoint; 
+    public int respawnCounter = 0;
     
+
     // Start is called before the first frame update
     void Start()
     {
-        rotationSpeed = 3;
-        xAngle = rotationSpeed;
-        stopRotation = 0;
-        speed = 5;
-        boosting = false;
+        // store default values for player respawn
+        resetRotSpeed = rotationSpeed;
+        resetSpeed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Set Player Rotation
-        player.transform.Rotate(xAngle, yAngle, zAngle * Time.deltaTime * rotationSpeed, Space.Self );
-
-        //Set Mouse Input
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            //if Button is pressed stop rotation
-            xAngle = stopRotation;
-            //Player Movement when Button is pressed
-            player.transform.Translate(new Vector3(0,speed,0) * Time.deltaTime * speed, Space.Self); 
-        }
-        
-        // Button unpressed, start rotation with xAngle
-        if ( Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            xAngle = rotationSpeed;
-        }
-
-
-    }
-
-    //Speed Up when Player collides with yellow Obstacles (Tagged with SpeedUp)
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "SpeedUp")
-        {
-            Debug.Log("Speed Up");
-            boosting = true;
-            rotationSpeed = 5;
-            speed = 8;
+        // if space is held, stop rotation and move forward
+        if (Input.GetKey(KeyCode.Space)) {
+            gameObject.transform.Translate(Vector3.up * Time.deltaTime * speed, Space.Self); 
+        } else {
+            // constant player rotation around X angle
+            gameObject.transform.Rotate(rotationSpeed * Time.deltaTime, 0, 0, Space.Self);
         }
     }
-
-
     
-    //Deactivate Speed Up when Respawn
-    private void OnCollisionEnter(Collision col) // check for Collision
+    // check for collisions of player
+    private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("Respawn"))  // Check if Player collides with Obstacles (Tagged with Respawn)
+        // check if respawn is necessary (colliding object tagged with Respawn) 
+        if (col.gameObject.CompareTag("Respawn"))
         {
-            rotationSpeed = 3;
-            speed = 5;
-            xAngle = rotationSpeed;
-            boosting = false;
+            // reset player values to default
+            rotationSpeed = resetRotSpeed;
+            speed = resetSpeed;
+            gameObject.GetComponent<GetSpeedUp>().boosting = false;
+            gameObject.GetComponent<GetSpeedUp>().wetTrail.SetActive(false);
+
+            // Reset Player Position
+            transform.position = spawnPoint.transform.position;
+            transform.rotation = Quaternion.identity;
+
+            // add to respawnCounter
+            respawnCounter++;
+        } 
+        // check if player made it to the end
+        else if (col.gameObject.CompareTag("Finish")) {
+            // call winning function
+            gameObject.GetComponent<GameOver>().DisplayGameOverUI(true);
         }
-
     }
-
- 
-
-
-
-
 }

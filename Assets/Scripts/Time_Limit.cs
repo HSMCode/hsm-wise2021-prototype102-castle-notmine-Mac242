@@ -1,57 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using TMPro;
 
 public class Time_Limit : MonoBehaviour
 {
-    public float timeValue = 30;
-    public Text timerText;
-    public GameObject player;
-    public Transform spawnPoint; // Position where the player should respawn
+    // set fixed time limit and UI element where it will be displayed
+    public float timeLimit = 30;
+    public float currentTime;
+    public TMP_Text timerText;
 
-
+    void Start() {
+        // set the current time to timeLimit value (counter initialized)
+        currentTime = timeLimit;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (timeValue > 0)
-        {
-            timeValue -= Time.deltaTime;
-        }
-        else
-        {
-            Debug.Log("Time is up! Try again!");
-            player.transform.position = spawnPoint.transform.position; // Reset Player Position
-            timeValue += 30;
-        }
+        // refresh time limit counter in UI
+        DisplayTime(currentTime);
 
-        DisplayTime(timeValue);
+        // count down as long as there is time left
+        if (currentTime > 0) {
+            currentTime -= Time.deltaTime;
+        }
+        // call losing function when no time is left
+        else {
+            currentTime = 0;
+            gameObject.GetComponent<GameOver>().DisplayGameOverUI(false);
+        }
     }
 
     void DisplayTime(float timeToDisplay)
-    {
-        if(timeToDisplay < 0)
-        {
-            timeToDisplay = 0;
-        }
+    {        
+        // format countdown for UI
+        float minutes = Mathf.FloorToInt(timeToDisplay / timeLimit);
+        float seconds = Mathf.FloorToInt(timeToDisplay % timeLimit);
 
-        float minutes = Mathf.FloorToInt(timeToDisplay / 30);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 30);
-
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        // overwrite timer UI element
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds) + " left";
     }
-
-    
-    // Time stops counting when Finish Point is reached
-    private void OnCollisionEnter(Collision col) // check for Collision
-    {
-        if (col.gameObject.CompareTag("Finish")) // Check if Player collides with Finish (Tagged with Finish)
-        {
-            timeValue = 0;
-        }
-    }
-
-
-
 }

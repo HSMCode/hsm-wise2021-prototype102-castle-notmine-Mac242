@@ -1,69 +1,31 @@
-# Project Title
+# Fright Knight
 
-This project was imported using the **Unity 2020.3.x** empty base project.
-Please fill out/change the ReadMe according to your needs, following the guide below.
+This project was imported using the **Unity 2020.3.18** empty base project.
 
-One Paragraph of project description goes here.
+_Once upon a timeth, th're wast a frightened knight yond didst ev'rything to avoideth fights._
+
+While his fellow knights are occupying the castle, one panicked knight tries to sneak through, avoiding enemies and obstacles as well as
+collecting riches for his personal collection before the castle guard catches up with him.
 
 ## Summary
 
   - [Getting Started](#getting-started)
-  - [Runing the tests](#running-the-tests)
-  - [Deployment](#deployment)
+  - [How to Play](#how-to-play)
   - [Built With](#built-with)
-  - [Contributing](#contributing)
-  - [Versioning](#versioning)
   - [Authors](#authors)
   - [License](#license)
-  - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on
-your local machine for development and testing purposes. See deployment
-for notes on how to deploy the project on a live system.
+Either download the Executable or the Unity Project to play the game (or to look behind the curtains).
 
-### Prerequisites
+## How to Play
 
-What things you need to install the software and how to install them
-
-    Give examples
-
-### Installing
-
-A step by step series of examples that tell you how to get a development
-env running
-
-Say what the step will be
-
-    Give the example
-
-And repeat
-
-    until finished
-
-End with an example of getting some data out of the system or using it
-for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-    Give an example
-
-### And coding style tests
-
-Explain what these tests test and why
-
-    Give an example
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+  - hold **Space** to stop rotating and move forwards
+  - avoid boundaries, obstacles and enemies
+  - keep track of the time or the guard will catch up
+  - try to collect coins for your collection
+  - reach the door to finish a level
 
 ## Built With
 
@@ -72,22 +34,17 @@ Add additional notes about how to deploy this on a live system
   - [Creative Commons](https://creativecommons.org/) - Used to choose
     the license
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
-of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions
-available, see the [tags on this
-repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
-
 ## Authors
 
-  - **Billie Thompson** - *Provided README Template* -
-    [PurpleBooth](https://github.com/PurpleBooth)
+  - **Game Concept:** Carola
+  - **Code:** Anna, Svenja, Alen, Carola
 
+  - **Music:** Ale and Anecdotes by Darren Curtis | https://www.darrencurtismusic.com/
+Music promoted on https://www.chosic.com/free-music/all/
+Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+https://creativecommons.org/licenses/by/3.0/
+  - **Billie Thompson** - *Provided README Template* -
+    [PurpleBooth](https://github.com/PurpleBooth) 
 See also the list of
 [contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
 who participated in this project.
@@ -98,8 +55,3 @@ This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
 Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
 details
 
-## Acknowledgments
-
-  - Hat tip to anyone whose code was used
-  - Inspiration
-  - etc
