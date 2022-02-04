@@ -38,7 +38,7 @@ Either download the Executable or the Unity Project to play the game (or to look
 
   - **Game Concept:** Carola
   - **Code:** Anna, Svenja, Alen, Carola
-
+  - **Sounds:** Adobe Audition (Adobe Creative Cloud)
   - **Music:** Ale and Anecdotes by Darren Curtis | https://www.darrencurtismusic.com/
 Music promoted on https://www.chosic.com/free-music/all/
 Creative Commons Attribution 3.0 Unported (CC BY 3.0)

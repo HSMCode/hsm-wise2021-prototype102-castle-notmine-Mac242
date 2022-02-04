@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f26c92aeb56092a4082aa8092fb01589
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - musicSource: {instanceID: 0}
+  - backgroundMusic: {fileID: 8300000, guid: 57fda4a532490de4283cabbe8923719a, type: 3}
+  - clipSource: {instanceID: 0}
+  - winningClip: {fileID: 8300000, guid: d56b2e076e15a6341b1800f52994807a, type: 3}
+  - losingClip: {fileID: 8300000, guid: 9bde41e8702e43946897d05234c50149, type: 3}
+  - coinClip: {instanceID: 0}
+  - puddleClip: {instanceID: 0}
+  - resetClip: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
