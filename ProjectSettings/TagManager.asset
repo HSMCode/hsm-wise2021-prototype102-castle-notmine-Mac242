@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpeedUp
   - Coin
+  - MusicBox
   layers:
   - Default
   - TransparentFX

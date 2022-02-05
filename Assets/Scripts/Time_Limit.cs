@@ -8,6 +8,7 @@ public class Time_Limit : MonoBehaviour
     // set fixed time limit and UI element where it will be displayed
     public float timeLimit = 30;
     public float currentTime;
+    private bool isCounting = true;
     public TMP_Text timerText;
 
     void Start() {
@@ -18,17 +19,21 @@ public class Time_Limit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // refresh time limit counter in UI
-        DisplayTime(currentTime);
+        // only count down until 0 is reached
+        if (isCounting) {
+            // refresh time limit counter in UI
+            DisplayTime(currentTime);
 
-        // count down as long as there is time left
-        if (currentTime > 0) {
-            currentTime -= Time.deltaTime;
-        }
-        // call losing function when no time is left
-        else {
-            currentTime = 0;
-            gameObject.GetComponent<GameOver>().DisplayGameOverUI(false);
+            // count down as long as there is time left
+            if (currentTime > 0) {
+                currentTime -= Time.deltaTime;
+            }
+            // call losing function when no time is left
+            else {
+                currentTime = 0;
+                isCounting = false;
+                gameObject.GetComponent<GameOver>().DisplayGameOverUI(false);
+            }
         }
     }
 

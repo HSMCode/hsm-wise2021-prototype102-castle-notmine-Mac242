@@ -24,8 +24,13 @@ public class GetSpeedUp : MonoBehaviour
         {
             boosting = true;
             wetTrail.SetActive(true);
-            gameObject.GetComponent<Player_Controller>().rotationSpeed *= 2f;
-            gameObject.GetComponent<Player_Controller>().speed *= 2f;
+            
+            // play audio clip
+            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.puddleClip, 0.1f);
+
+            // modify speed values
+            gameObject.GetComponent<Player_Controller>().rotationSpeed *= 1.5f;
+            gameObject.GetComponent<Player_Controller>().speed *= 1.5f;
         }
     }
 }

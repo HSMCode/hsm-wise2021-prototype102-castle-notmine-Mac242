@@ -42,6 +42,9 @@ public class Player_Controller : MonoBehaviour
         // check if respawn is necessary (colliding object tagged with Respawn) 
         if (col.gameObject.CompareTag("Respawn"))
         {
+            // play hit sound
+            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.resetClip, 0.15f);
+
             // reset player values to default
             rotationSpeed = resetRotSpeed;
             speed = resetSpeed;

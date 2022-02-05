@@ -16,6 +16,9 @@ public class CollectCoin : MonoBehaviour
         if (col.gameObject.CompareTag("Coin")) {
             collectedCoins++;
 
+            // play Audio Clip
+            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.coinClip, 0.7f);
+
             // add collected coins to UI
             textCoins.text = collectedCoins.ToString() + " chink(s),";
 

@@ -8,11 +8,24 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Reload Scene when pressing R
+        // Return to Title Screen when pressing ESC
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("TitleScreen");
+        }
+
+        // Reload Scene when pressing R
         if (Input.GetKeyUp(KeyCode.R))
         {
-            Time.timeScale = 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            RestartGame();
         }
+    }
+
+    public void StartPlaying() {
+        SceneManager.LoadScene("FrightKnight");
+    }
+
+    public void RestartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
